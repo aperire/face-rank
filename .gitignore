@@ -24,4 +24,7 @@ yarn-error.log*
 
 
 **/env
+**/data.json
+**/image.json
+**/images
 **/__pycache__
