@@ -79,7 +79,7 @@ def post_vote_result():
         current_data = json.load(f)
         print(data)
         image_url = data["response"]["currentImage"]
-        image_url = image_url.replace('http://localhost:8080/images/', '')
+        image_url = image_url.replace('https://2c96-104-204-138-4.ngrok.io/images/', '')
         image_url = image_url.replace('.png', '')
         vote_res = data["response"]["vote"]
         if image_url in current_data.keys():

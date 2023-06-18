@@ -12,7 +12,7 @@ function ImageUploader() {
     formData.append('text', text);
     console.log(formData);
     try {
-      const response = await fetch('http://localhost:8080/upload', {
+      const response = await fetch('https://2c96-104-204-138-4.ngrok.io/upload', {
         method: 'POST',
         body: formData,
       });

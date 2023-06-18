@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./swap.css"
+
 function ImageSwapper() {
   const [currentImage, setCurrentImage] = useState('');
   const [currentText, setCurrentText] = useState('');
@@ -25,7 +26,7 @@ function ImageSwapper() {
   };
 
   const getNextImage = () => {
-    fetch("http://localhost:8080/fetch")
+    fetch("https://2c96-104-204-138-4.ngrok.io/fetch")
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -33,14 +34,14 @@ function ImageSwapper() {
         return response.json();
       })
       .then((data) => {
-        setCurrentImage(`http://localhost:8080/images/${data.img}`)
+        setCurrentImage(`https://2c96-104-204-138-4.ngrok.io/images/${data.img}`)
         setCurrentText(data.text)
       })
       .catch(error => console.log(error));
   }
 
   const sendVote = (response) => {
-    fetch('http://localhost:8080/vote', {
+    fetch('https://2c96-104-204-138-4.ngrok.io/vote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -67,13 +68,13 @@ function ImageSwapper() {
       <h1>Vote!</h1>
       <img src={currentImage} alt="img" className="image"/>
       <h4>{currentText}</h4>
-      <div class="button-container">
-      <button class="ok-button" onClick={handleOkClick}>Up</button>
-      <button class="no-button" onClick={handleNoClick}>Down</button>
-    </div>
-
+      <div className="button-container">
+        <button className="ok-button" onClick={handleOkClick}>Up</button>
+        <button className="no-button" onClick={handleNoClick}>Down</button>
+      </div>
     </div>
   );
 }
 
 export default ImageSwapper;
+
